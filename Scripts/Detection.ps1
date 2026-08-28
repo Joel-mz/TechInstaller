@@ -83,7 +83,14 @@ function Get-ProgramList {
                 }
 
                 # Construir el objeto del programa
-                $programa = [PSCustomObject]@{
+                $programa = $iconPath = $null
+                $possibleIconPng = [System.IO.Path]::ChangeExtension($archivo.FullName, ".png")
+                $possibleIconIco = [System.IO.Path]::ChangeExtension($archivo.FullName, ".ico")
+                if (Test-Path $possibleIconPng) { $iconPath = $possibleIconPng }
+                elseif (Test-Path $possibleIconIco) { $iconPath = $possibleIconIco }
+
+                [PSCustomObject]@{
+                    IconPath = $iconPath
                     Nombre      = $nombrePrograma
                     Archivo     = $archivo.Name
                     RutaCompleta = $archivo.FullName
@@ -205,4 +212,5 @@ function Get-CategoryList {
     $categorias = $ProgramList | Select-Object -ExpandProperty Categoria -Unique | Sort-Object
     return $categorias
 }
+
 

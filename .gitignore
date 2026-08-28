@@ -21,10 +21,7 @@ tmp/
 # No redistribuir software de terceros sin licencia.
 # Solo sube la estructura de carpetas (los .gitkeep se conservan).
 # ---------------------------------------------------------------
-Programas/**/*.exe
-Programas/**/*.msi
-Programas/**/*.msp
-Programas/**/*.msu
+Programas/*
 
 # Permitir los archivos .gitkeep para mantener la estructura de carpetas
 !Programas/**/.gitkeep
@@ -81,3 +78,4 @@ modules/
 *.vmdk
 *.vhd
 *.ova
+
