@@ -15,7 +15,7 @@
 
 [CmdletBinding()]
 param(
-    [string]$GitHubUser = "Joel-mz",
+    [string]$GitHubUser = "TU_USUARIO_GITHUB",
     [string]$Repository = "TechInstaller",
     [string]$Branch     = "main",
     [string]$InstallDir = ""
@@ -288,4 +288,3 @@ Write-Host ""
 Write-Host "  Bootstrap completado. La ventana de Tech Installer 2026 se ha abierto." -ForegroundColor Green
 Write-Host "  Instalacin ubicada en: $INSTALL_DIR" -ForegroundColor Gray
 Write-Host ""
-

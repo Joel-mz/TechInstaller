@@ -217,8 +217,7 @@ function New-SidebarButton {
     $btn = New-Object System.Windows.Forms.Button
     $btn.Text      = $Text
     $btn.Location  = New-Object System.Drawing.Point(0, $Y)
-    $alturaSidebar = if ($IsHeader) { 28 } else { 38 }
-    $btn.Size      = New-Object System.Drawing.Size(180, $alturaSidebar)
+    $btn.Size      = New-Object System.Drawing.Size(180, if ($IsHeader) { 28 } else { 38 })
     $btn.BackColor = $colores.FondoSidebar
     $btn.ForeColor = if ($IsHeader) { $colores.TextoMuted } else { $colores.TextoSecundario }
     $btn.Font      = if ($IsHeader) { $fuentes.Pequena } else { $fuentes.Sidebar }
@@ -345,13 +344,13 @@ function Add-SidebarItem {
     return $btn
 }
 
-$null = Add-SidebarItem "  NAVEGACIN"         $true
+$headerNav1      = Add-SidebarItem "  NAVEGACIN"         $true
 $btnNavProgramas = Add-SidebarItem "  [PKG]  Programas"      $false "nav_programas"
 $btnNavSistema   = Add-SidebarItem "  [SYS]  Sistema"        $false "nav_sistema"
 $btnNavRed       = Add-SidebarItem "  [NET]  Red"            $false "nav_red"
 $btnNavLogs      = Add-SidebarItem "  [LOG]  Logs"           $false "nav_logs"
 $script:SidebarY += 10
-$null = Add-SidebarItem "  CATEGORAS"         $true
+$headerNav2      = Add-SidebarItem "  CATEGORAS"         $true
 $btnCatTodos     = Add-SidebarItem "  [*]  Todos"          $false "cat_todos"
 $btnCatOffice    = Add-SidebarItem "  [DOC]  Office"         $false "cat_office"
 $btnCatNav       = Add-SidebarItem "  [NET]  Navegadores"    $false "cat_navegadores"
@@ -566,7 +565,7 @@ $btnRefreshSis = New-StyledButton -Text "Actualizar  Actualizar datos" -X 10 -Y 
     -BackColor $colores.FondoCard -ForeColor $colores.TextoPrimario -Font $fuentes.Normal
 $panelSistema.Controls.Add($btnRefreshSis)
 
-function Update-SystemInfo {
+function Load-SystemInfo {
     try {
         $txtSistema.Clear()
         $info = Get-SystemInfo
@@ -791,7 +790,7 @@ function Show-Panel {
         "Programas"    { $panelPrograms.Visible = $true }
         "Sistema"      {
             $panelSistema.Visible  = $true
-            Update-SystemInfo
+            Load-SystemInfo
         }
         "Red"          { $panelRed.Visible      = $true }
         "Logs"         {
@@ -808,7 +807,7 @@ function Show-Panel {
 # =============================================================================
 # PASO 9: LGICA DE CARGA Y FILTRADO DE PROGRAMAS
 # =============================================================================
-function Update-ProgramList {
+function Load-Programs {
     param([string]$Categoria = "Todos", [string]$Busqueda = "")
 
     try {
@@ -816,9 +815,8 @@ function Update-ProgramList {
         Add-LogLine "Escaneando carpeta de programas..." "INFO"
         Write-Log "Actualizando lista de programas. Categora: $Categoria | Bsqueda: '$Busqueda'" "INFO"
 
-        $excluir = @()
-        if ($script:Config.ExcludeFolders) { $excluir = @($script:Config.ExcludeFolders) }
-        $script:ListaProgramas = Get-ProgramList -ProgramsFolder $script:ProgramsPath `n                                                  -CategoriesConfig $script:CatConfig `n                                                  -ExcludeFolders $excluir
+        $script:ListaProgramas = Get-ProgramList -ProgramsFolder $script:ProgramsPath `
+                                                  -CategoriesConfig $script:CatConfig
 
         # Aplicar filtros
         $programasFiltrados = $script:ListaProgramas
@@ -857,11 +855,6 @@ function Update-ProgramList {
         $total = $script:ListaProgramas.Count
         $mostrando = $programasFiltrados.Count
 
-        if ($Categoria -eq "Todos" -and [string]::IsNullOrWhiteSpace($Busqueda)) {
-            $categoriasDetectadas = Get-CategoryList -ProgramList $script:ListaProgramas
-            Update-SidebarCategories -Categorias $categoriasDetectadas
-        }
-
         if ($total -eq 0) {
             Add-LogLine "No se encontraron programas en: $script:ProgramsPath" "WARNING"
             Add-LogLine "Agrega archivos .exe, .msi, .bat o .cmd en las subcarpetas de 'Programas/'" "INFO"
@@ -878,7 +871,7 @@ function Update-ProgramList {
 # =============================================================================
 # PASO 10: LGICA DE INSTALACIN
 # =============================================================================
-function Start-SelectedPrograms {
+function Execute-SelectedPrograms {
     param([bool]$Silencioso = $false)
 
     # Obtener programas seleccionados (con checkbox marcado)
@@ -997,48 +990,48 @@ $btnNavUpdate.Add_Click({
 # --- Filtros por categora ---
 $btnCatTodos.Add_Click({
     $script:FiltroCategoria = "Todos"
-    Update-ProgramList -Categoria "Todos" -Busqueda $script:FiltroBusqueda
+    Load-Programs -Categoria "Todos" -Busqueda $script:FiltroBusqueda
     Update-SidebarButtonState $btnCatTodos
 })
 
 $btnCatOffice.Add_Click({
     $script:FiltroCategoria = "Office"
-    Update-ProgramList -Categoria "Office" -Busqueda $script:FiltroBusqueda
+    Load-Programs -Categoria "Office" -Busqueda $script:FiltroBusqueda
     Update-SidebarButtonState $btnCatOffice
 })
 $btnCatNav.Add_Click({
     $script:FiltroCategoria = "Navegadores"
-    Update-ProgramList -Categoria "Navegadores" -Busqueda $script:FiltroBusqueda
+    Load-Programs -Categoria "Navegadores" -Busqueda $script:FiltroBusqueda
     Update-SidebarButtonState $btnCatNav
 })
 $btnCatPDF.Add_Click({
     $script:FiltroCategoria = "PDF"
-    Update-ProgramList -Categoria "PDF" -Busqueda $script:FiltroBusqueda
+    Load-Programs -Categoria "PDF" -Busqueda $script:FiltroBusqueda
     Update-SidebarButtonState $btnCatPDF
 })
 $btnCatComp.Add_Click({
     $script:FiltroCategoria = "Compresores"
-    Update-ProgramList -Categoria "Compresores" -Busqueda $script:FiltroBusqueda
+    Load-Programs -Categoria "Compresores" -Busqueda $script:FiltroBusqueda
     Update-SidebarButtonState $btnCatComp
 })
 $btnCatMedia.Add_Click({
     $script:FiltroCategoria = "Multimedia"
-    Update-ProgramList -Categoria "Multimedia" -Busqueda $script:FiltroBusqueda
+    Load-Programs -Categoria "Multimedia" -Busqueda $script:FiltroBusqueda
     Update-SidebarButtonState $btnCatMedia
 })
 $btnCatUtil.Add_Click({
     $script:FiltroCategoria = "Utilidades"
-    Update-ProgramList -Categoria "Utilidades" -Busqueda $script:FiltroBusqueda
+    Load-Programs -Categoria "Utilidades" -Busqueda $script:FiltroBusqueda
     Update-SidebarButtonState $btnCatUtil
 })
 $btnCatAcceso.Add_Click({
     $script:FiltroCategoria = "AccesoRemoto"
-    Update-ProgramList -Categoria "AccesoRemoto" -Busqueda $script:FiltroBusqueda
+    Load-Programs -Categoria "AccesoRemoto" -Busqueda $script:FiltroBusqueda
     Update-SidebarButtonState $btnCatAcceso
 })
 $btnCatDriv.Add_Click({
     $script:FiltroCategoria = "Drivers"
-    Update-ProgramList -Categoria "Drivers" -Busqueda $script:FiltroBusqueda
+    Load-Programs -Categoria "Drivers" -Busqueda $script:FiltroBusqueda
     Update-SidebarButtonState $btnCatDriv
 })
 
@@ -1061,17 +1054,17 @@ $txtBuscar.Add_TextChanged({
     $busqueda = $txtBuscar.Text
     if ($busqueda -ne "Buscar programa...") {
         $script:FiltroBusqueda = $busqueda
-        Update-ProgramList -Categoria $script:FiltroCategoria -Busqueda $busqueda
+        Load-Programs -Categoria $script:FiltroCategoria -Busqueda $busqueda
     }
 })
 
 # --- Acciones de instalacin ---
 $btnActualizar.Add_Click({
-    Update-ProgramList -Categoria $script:FiltroCategoria -Busqueda $script:FiltroBusqueda
+    Load-Programs -Categoria $script:FiltroCategoria -Busqueda $script:FiltroBusqueda
 })
 
-$btnInstalarSel.Add_Click({ Start-SelectedPrograms -Silencioso $false })
-$btnInstalarSilencioso.Add_Click({ Start-SelectedPrograms -Silencioso $true })
+$btnInstalarSel.Add_Click({ Execute-SelectedPrograms -Silencioso $false })
+$btnInstalarSilencioso.Add_Click({ Execute-SelectedPrograms -Silencioso $true })
 
 # Doble clic en programa: ejecutar directamente
 $listView.Add_DoubleClick({
@@ -1106,7 +1099,7 @@ $listView.Add_DoubleClick({
 })
 
 # --- Sistema ---
-$btnRefreshSis.Add_Click({ Update-SystemInfo })
+$btnRefreshSis.Add_Click({ Load-SystemInfo })
 
 # --- Logs ---
 $btnAbrirLog.Add_Click({
@@ -1236,7 +1229,7 @@ Write-Log "GUI inicializada correctamente." "SUCCESS"
 
 # Cargar lista de programas en segundo plano (despus de mostrar la ventana)
 $ventana.Add_Shown({
-    Update-ProgramList -Categoria "Todos"
+    Load-Programs -Categoria "Todos"
     $btnCatTodos.BackColor = $colores.FondoCard
     $btnCatTodos.ForeColor = $colores.TextoPrimario
     $btnCatTodos.Font      = $fuentes.SidebarBold
@@ -1244,5 +1237,3 @@ $ventana.Add_Shown({
 
 # Mostrar la ventana principal
 [System.Windows.Forms.Application]::Run($ventana)
-
-

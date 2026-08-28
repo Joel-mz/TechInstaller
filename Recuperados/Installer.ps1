@@ -189,7 +189,7 @@ function Start-InstallerBatch {
             & $ProgressCallback $indice $total $programa.Nombre
         }
 
-        Write-Log "Instalando ${indice}/${total}: $($programa.Nombre)" "ACTION"
+        Write-Log "Instalando $indice/$total: $($programa.Nombre)" "ACTION"
 
         $resultado = Start-Installer -Programa $programa -Silencioso $Silencioso -Esperar $true
         $resultados += [PSCustomObject]@{
@@ -206,4 +206,3 @@ function Start-InstallerBatch {
 
     return $resultados
 }
-

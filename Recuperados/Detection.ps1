@@ -29,8 +29,7 @@ $script:PatronesIgnorar = @(
 function Get-ProgramList {
     param (
         [string]$ProgramsFolder,
-        [object]$CategoriesConfig = $null,
-        [string[]]$ExcludeFolders = @()
+        [object]$CategoriesConfig = $null
     )
 
     $listaProgramas = @()
@@ -48,12 +47,6 @@ function Get-ProgramList {
 
         foreach ($archivo in $archivos) {
             try {
-                # -- Comprobar si el archivo esta dentro de una carpeta excluida --
-                $carpetaRaiz = $archivo.FullName.Replace($ProgramsFolder, "").TrimStart('\','/') -split '[\\/]' | Select-Object -First 1
-                if ($ExcludeFolders -contains $carpetaRaiz) {
-                    continue
-                }
-
                 # Comprobar si el archivo debe ignorarse
                 $debeIgnorar = $false
                 foreach ($patron in $script:PatronesIgnorar) {
@@ -205,4 +198,3 @@ function Get-CategoryList {
     $categorias = $ProgramList | Select-Object -ExpandProperty Categoria -Unique | Sort-Object
     return $categorias
 }
-

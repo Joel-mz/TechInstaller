@@ -7,10 +7,14 @@
   "ProgramsFolder": "..",
   "LogsFolder": "Logs",
   "ExcludeFolders": ["TechInstaller", "logos de aplicaciones", ".git"],
+  "ExcludeFolders": ["TechInstaller", "logos de aplicaciones", ".git"],
+  "ExcludeFolders": ["TechInstaller", "logos de aplicaciones", ".git"],
   "CheckUpdatesOnStart": false,
   "LogLevel": "INFO",
   "WindowWidth": 1100,
   "WindowHeight": 750,
   "Theme": "Dark"
 }
+
+
 
