@@ -267,7 +267,7 @@ $TxtSearch = $window.FindName("TxtSearch")
 # =============================================================================
 $script:CategoriaSeleccionada = "Inicio"
 
-function Refrescar-Listado {
+function Update-Listado {
     $LblTotal.Text = $script:ListaProgramas.Count.ToString()
     $LblScripts.Text = $script:ListaProgramas.Count.ToString()
     $LblUltimaAct.Text = (Get-Date).ToString("dd/MM/yyyy HH:mm")
@@ -318,6 +318,51 @@ $MenuCategories.Add_SelectionChanged({
             $filtrados = $script:ListaProgramas | Where-Object Categoria -eq $sel
             $ProgramList.ItemsSource = $filtrados
         }
+    }
+})
+
+$BtnEjecutarSel.Add_Click({
+    $seleccionados = @($ProgramList.SelectedItems)
+    if ($seleccionados.Count -eq 0) {
+        [System.Windows.Forms.MessageBox]::Show("Selecciona al menos un programa.")
+        return
+    }
+    
+    $confirm = [System.Windows.Forms.MessageBox]::Show("¿Instalar $($seleccionados.Count) programa(s)?", "Confirmar", 4, 32)
+    if ($confirm -eq "Yes") {
+        $window.Hide()
+        Start-InstallSequence -ProgramList $seleccionados -Silencioso $false -NoAdmin $NoAdmin -LogsFolder $script:LogsPath
+        $window.ShowDialog() | Out-Null
+    }
+})
+
+$BtnEjecutarTodo.Add_Click({
+    $seleccionados = @($ProgramList.Items)
+    if ($seleccionados.Count -eq 0) {
+        return
+    }
+    
+    $confirm = [System.Windows.Forms.MessageBox]::Show("¿Instalar TODOS los $($seleccionados.Count) programa(s)?", "Confirmar", 4, 32)
+    if ($confirm -eq "Yes") {
+        $window.Hide()
+        Start-InstallSequence -ProgramList $seleccionados -Silencioso $false -NoAdmin $NoAdmin -LogsFolder $script:LogsPath
+        $window.ShowDialog() | Out-Null
+    }
+})
+
+$BtnActualizar.Add_Click({
+    $script:ListaProgramas = Get-ProgramList -ProgramsFolder $script:ProgramsPath -CategoriesConfig $script:CatConfig -ExcludeFolders $excluir
+    Update-Listado
+    $ProgramList.ItemsSource = $script:ListaProgramas
+})
+
+$TxtSearch.Add_TextChanged({
+    $texto = $TxtSearch.Text.Trim()
+    if ([string]::IsNullOrWhiteSpace($texto)) {
+        $ProgramList.ItemsSource = $script:ListaProgramas
+    } else {
+        $filtrados = $script:ListaProgramas | Where-Object { $_.Nombre -match $texto }
+        $ProgramList.ItemsSource = $filtrados
     }
 })
 
