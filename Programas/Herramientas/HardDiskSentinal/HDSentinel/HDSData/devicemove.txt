@@ -1,0 +1,30 @@
+27/09/2024  14:45:19.974  Physical device removed : \\?\USBSTOR#Disk&Ven_SanDisk&Prod_Cruzer_Glide&Rev_1.00#4C530000011105121000&0#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+27/09/2024  14:45:20.412  Logical disk removed    : \\?\STORAGE#Volume#_??_USBSTOR#Disk&Ven_SanDisk&Prod_Cruzer_Glide&Rev_1.00#4C530000011105121000&0#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+27/09/2024  14:45:28.133  Physical device inserted: \\?\USBSTOR#Disk&Ven_Kingston&Prod_DataTraveler_3.0&Rev_#E0D55EA573CDF4716968AE38&0#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+27/09/2024  14:45:29.830  Logical disk inserted   : \\?\STORAGE#Volume#_??_USBSTOR#Disk&Ven_Kingston&Prod_DataTraveler_3.0&Rev_#E0D55EA573CDF4716968AE38&0#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+27/09/2024  14:59:40.336  Physical device removed : \\?\USBSTOR#Disk&Ven_Kingston&Prod_DataTraveler_3.0&Rev_#E0D55EA573CDF4716968AE38&0#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+27/09/2024  14:59:40.810  Logical disk removed    : \\?\STORAGE#Volume#_??_USBSTOR#Disk&Ven_Kingston&Prod_DataTraveler_3.0&Rev_#E0D55EA573CDF4716968AE38&0#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+27/09/2024  15:04:22.343  Logical disk inserted   : \\?\SCSI#CdRom&Ven_Msft&Prod_Virtual_DVD-ROM#2&1f4adffe&0&000001#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+27/09/2024  15:34:33.159  Logical disk removed    : \\?\SCSI#CdRom&Ven_Msft&Prod_Virtual_DVD-ROM#2&1f4adffe&0&000001#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+06/10/2024  20:24:56.475  Logical disk removed    : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE#1&2afd7d61&3&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+16/10/2024  02:40:42.239  Logical disk inserted   : \\?\STORAGE#Volume#{0bc15db1-89e7-11ef-8cbf-18c04dd381bd}#0000000001000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+18/10/2024  23:51:55.576  Logical disk inserted   : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&0&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+18/10/2024  23:51:55.613  Logical disk removed    : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&0&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+18/10/2024  23:51:55.625  Logical disk inserted   : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&0&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+18/10/2024  23:52:08.784  Logical disk removed    : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&0&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+18/10/2024  23:52:14.602  Logical disk inserted   : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&1&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+18/10/2024  23:52:14.646  Logical disk removed    : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&1&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+18/10/2024  23:52:14.686  Logical disk inserted   : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&1&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+18/10/2024  23:52:46.350  Logical disk removed    : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&1&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+18/10/2024  23:52:46.389  Logical disk inserted   : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&1&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+18/10/2024  23:55:26.954  Logical disk removed    : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&1&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+19/10/2024  00:30:44.452  Logical disk inserted   : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&2&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+19/10/2024  00:30:44.528  Logical disk removed    : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&2&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+19/10/2024  00:30:44.558  Logical disk inserted   : \\?\SCSI#CdRom&Ven_ELBY&Prod_CLONEDRIVE&Rev_1.4#1&2afd7d61&2&000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+03/12/2024  16:46:14.373  Physical device inserted: \\?\SCSI#Disk&Ven_WD_Green&Prod__SN350_500GB_2G0#6&61bba95&1&000000#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+03/12/2024  16:46:16.100  Logical disk inserted   : \\?\STORAGE#Volume#{5c74e788-b1ac-11ef-8201-98f13ea56a1a}#0000000001000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+03/12/2024  16:51:32.797  Logical disk inserted   : \\?\SCSI#CdRom&Ven_Msft&Prod_Virtual_DVD-ROM#2&1f4adffe&1&000001#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+03/12/2024  16:58:16.993  Logical disk removed    : \\?\STORAGE#Volume#{5c74e788-b1ac-11ef-8201-98f13ea56a1a}#0000000001000000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+03/12/2024  16:58:17.009  Physical device removed : \\?\SCSI#Disk&Ven_WD_Green&Prod__SN350_500GB_2G0#6&61bba95&1&000000#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+07/08/2025  01:44:34.591  Logical disk inserted   : \\?\SCSI#CdRom&Ven_Msft&Prod_Virtual_DVD-ROM#2&1f4adffe&0&000003#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+07/08/2025  01:45:54.619  Logical disk removed    : \\?\SCSI#CdRom&Ven_Msft&Prod_Virtual_DVD-ROM#2&1f4adffe&0&000003#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}

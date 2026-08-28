@@ -4,7 +4,7 @@
   "GitHubUser": "Joel-mz",
   "GitHubRepository": "Joel-mz/TechInstaller",
   "Branch": "main",
-  "ProgramsFolder": "..",
+  "ProgramsFolder": "Programas",
   "LogsFolder": "Logs",
   "ExcludeFolders": ["TechInstaller", "logos de aplicaciones", ".git"],
   "ExcludeFolders": ["TechInstaller", "logos de aplicaciones", ".git"],
@@ -15,6 +15,7 @@
   "WindowHeight": 750,
   "Theme": "Dark"
 }
+
 
 
 

@@ -18,8 +18,7 @@
 
 [CmdletBinding()]
 param(
-    [switch]$NoAdmin,     # Omite la verificacin de administrador (solo para pruebas)
-    [switch]$Debug        # Activa modo depuracin
+    [switch]$NoAdmin     # Omite la verificacin de administrador (solo para pruebas)
 )
 
 # Configurar manejo de errores
@@ -263,7 +262,7 @@ $ventana.StartPosition   = [System.Windows.Forms.FormStartPosition]::CenterScree
 $ventana.BackColor       = $colores.Fondo
 $ventana.ForeColor       = $colores.TextoPrimario
 $ventana.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::Sizable
-$ventana.DoubleBuffered  = $true
+
 $ventana.Icon            = [System.Drawing.SystemIcons]::Application
 
 # ---------------------------------------------------------------
