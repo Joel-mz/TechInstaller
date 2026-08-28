@@ -34,6 +34,8 @@ function Get-ProgramList {
     )
 
     $listaProgramas = @()
+    $rootForAssets = Split-Path $ProgramsFolder -Parent
+    $logosFolder = Join-Path $rootForAssets "Assets\logos"
 
     try {
         # Verificar que existe la carpeta
@@ -84,12 +86,18 @@ function Get-ProgramList {
 
                 # Construir el objeto del programa
                 $programa = $iconPath = $null
+                $baseName = [System.IO.Path]::GetFileNameWithoutExtension($archivo.Name)
+                $possibleAssetPng = Join-Path $logosFolder "$baseName.png"
+                $possibleAssetIco = Join-Path $logosFolder "$baseName.ico"
                 $possibleIconPng = [System.IO.Path]::ChangeExtension($archivo.FullName, ".png")
                 $possibleIconIco = [System.IO.Path]::ChangeExtension($archivo.FullName, ".ico")
-                if (Test-Path $possibleIconPng) { $iconPath = $possibleIconPng }
+                if (Test-Path $possibleAssetPng) { $iconPath = $possibleAssetPng }
+                elseif (Test-Path $possibleAssetIco) { $iconPath = $possibleAssetIco }
+                elseif (Test-Path $possibleIconPng) { $iconPath = $possibleIconPng }
                 elseif (Test-Path $possibleIconIco) { $iconPath = $possibleIconIco }
 
-                [PSCustomObject]@{
+                $programa = [PSCustomObject]@{
+
                     IconPath = $iconPath
                     Nombre      = $nombrePrograma
                     Archivo     = $archivo.Name
@@ -212,5 +220,7 @@ function Get-CategoryList {
     $categorias = $ProgramList | Select-Object -ExpandProperty Categoria -Unique | Sort-Object
     return $categorias
 }
+
+
 
 
