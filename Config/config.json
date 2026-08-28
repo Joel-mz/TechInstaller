@@ -1,0 +1,16 @@
+{
+  "ApplicationName": "Tech Installer 2026",
+  "Version": "1.0.0",
+  "GitHubUser": "Joel-mz",
+  "GitHubRepository": "Joel-mz/TechInstaller",
+  "Branch": "main",
+  "ProgramsFolder": "..",
+  "LogsFolder": "Logs",
+  "ExcludeFolders": ["TechInstaller", "logos de aplicaciones", ".git"],
+  "CheckUpdatesOnStart": false,
+  "LogLevel": "INFO",
+  "WindowWidth": 1100,
+  "WindowHeight": 750,
+  "Theme": "Dark"
+}
+

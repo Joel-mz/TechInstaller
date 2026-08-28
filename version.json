@@ -1,0 +1,6 @@
+{
+  "version": "1.0.0",
+  "releaseDate": "2026-08-28",
+  "releaseNotes": "Versión inicial de Tech Installer 2026.",
+  "minPowerShellVersion": "5.1"
+}

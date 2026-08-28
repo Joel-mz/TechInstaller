@@ -1,0 +1,107 @@
+{
+  "Categories": [
+    {
+      "Name": "Office",
+      "FolderName": "Office",
+      "Icon": "📄",
+      "Color": "#E74C3C",
+      "Description": "Paquetes de ofimática y productividad"
+    },
+    {
+      "Name": "Navegadores",
+      "FolderName": "Navegadores",
+      "Icon": "🌐",
+      "Color": "#3498DB",
+      "Description": "Navegadores web"
+    },
+    {
+      "Name": "PDF",
+      "FolderName": "PDF",
+      "Icon": "📋",
+      "Color": "#E67E22",
+      "Description": "Lectores y editores de PDF"
+    },
+    {
+      "Name": "Compresores",
+      "FolderName": "Compresores",
+      "Icon": "🗜️",
+      "Color": "#27AE60",
+      "Description": "Herramientas de compresión de archivos"
+    },
+    {
+      "Name": "Multimedia",
+      "FolderName": "Multimedia",
+      "Icon": "🎬",
+      "Color": "#9B59B6",
+      "Description": "Reproductores y editores multimedia"
+    },
+    {
+      "Name": "Utilidades",
+      "FolderName": "Utilidades",
+      "Icon": "🔧",
+      "Color": "#1ABC9C",
+      "Description": "Herramientas del sistema y utilidades"
+    },
+    {
+      "Name": "AccesoRemoto",
+      "FolderName": "AccesoRemoto",
+      "Icon": "🖥️",
+      "Color": "#2ECC71",
+      "Description": "Software de acceso remoto"
+    },
+    {
+      "Name": "Drivers",
+      "FolderName": "Drivers",
+      "Icon": "⚙️",
+      "Color": "#95A5A6",
+      "Description": "Controladores de dispositivos"
+    }
+  ],
+  "ProgramConfigs": [
+    {
+      "Name": "Ejemplo Office",
+      "File": "OfficeSetup.exe",
+      "Category": "Office",
+      "Arguments": "",
+      "Version": "",
+      "OfficialURL": "https://www.microsoft.com/es-es/microsoft-365",
+      "Notes": "Instalar Office desde su instalador oficial. No usar activadores."
+    },
+    {
+      "Name": "7-Zip",
+      "File": "7z*.exe",
+      "Category": "Compresores",
+      "Arguments": "/S",
+      "Version": "",
+      "OfficialURL": "https://www.7-zip.org/",
+      "Notes": "Instalador oficial de 7-Zip. /S para instalación silenciosa."
+    },
+    {
+      "Name": "Google Chrome",
+      "File": "ChromeSetup.exe",
+      "Category": "Navegadores",
+      "Arguments": "/silent /install",
+      "Version": "",
+      "OfficialURL": "https://www.google.com/intl/es/chrome/",
+      "Notes": "Instalador empresarial de Chrome."
+    },
+    {
+      "Name": "Mozilla Firefox",
+      "File": "Firefox*.exe",
+      "Category": "Navegadores",
+      "Arguments": "-ms",
+      "Version": "",
+      "OfficialURL": "https://www.mozilla.org/es-ES/firefox/",
+      "Notes": "Instalador oficial de Firefox. -ms para instalación silenciosa."
+    },
+    {
+      "Name": "VLC",
+      "File": "vlc*.exe",
+      "Category": "Multimedia",
+      "Arguments": "/L=1034 /S",
+      "Version": "",
+      "OfficialURL": "https://www.videolan.org/vlc/",
+      "Notes": "VLC Media Player. /S silencioso, /L=1034 para español."
+    }
+  ]
+}

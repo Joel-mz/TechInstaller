@@ -1,0 +1,83 @@
+# =============================================================================
+# .gitignore para Tech Installer 2026
+# =============================================================================
+
+# ---------------------------------------------------------------
+# LOGS (no subir registros personales al repositorio)
+# ---------------------------------------------------------------
+Logs/
+*.log
+
+# ---------------------------------------------------------------
+# CARPETA TEMPORAL
+# ---------------------------------------------------------------
+Temp/
+temp/
+tmp/
+*.tmp
+
+# ---------------------------------------------------------------
+# INSTALADORES DE TERCEROS
+# No redistribuir software de terceros sin licencia.
+# Solo sube la estructura de carpetas (los .gitkeep se conservan).
+# ---------------------------------------------------------------
+Programas/**/*.exe
+Programas/**/*.msi
+Programas/**/*.msp
+Programas/**/*.msu
+
+# Permitir los archivos .gitkeep para mantener la estructura de carpetas
+!Programas/**/.gitkeep
+
+# ---------------------------------------------------------------
+# DATOS PERSONALES Y SECRETOS
+# ---------------------------------------------------------------
+*.env
+.env
+secrets.json
+credentials.json
+*.key
+*.pem
+*.pfx
+*.p12
+
+# ---------------------------------------------------------------
+# ARCHIVOS DE WINDOWS
+# ---------------------------------------------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ---------------------------------------------------------------
+# ARCHIVOS DE EDITORES
+# ---------------------------------------------------------------
+.vscode/
+.idea/
+*.suo
+*.user
+*.sublime-project
+*.sublime-workspace
+
+# ---------------------------------------------------------------
+# ARCHIVOS ESPECÍFICOS DE POWERSHELL
+# ---------------------------------------------------------------
+# No excluir los .ps1 del proyecto (son el código fuente)
+# Excluir módulos descargados localmente
+Modules/
+modules/
+
+# ---------------------------------------------------------------
+# ARCHIVOS DE ACTUALIZACIÓN DESCARGADOS
+# ---------------------------------------------------------------
+*_update.zip
+*_bootstrap_ext/
+
+# ---------------------------------------------------------------
+# ARCHIVOS GRANDES INNECESARIOS
+# ---------------------------------------------------------------
+*.iso
+*.img
+*.vmdk
+*.vhd
+*.ova
