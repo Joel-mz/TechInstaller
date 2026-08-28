@@ -305,7 +305,7 @@ function Update-Listado {
     $MenuCategories.SelectedIndex = 0
 }
 
-Refrescar-Listado
+Update-Listado
 
 $MenuCategories.Add_SelectionChanged({
     if ($MenuCategories.SelectedItem) {
@@ -371,6 +371,7 @@ $BtnAbrirCarpeta.Add_Click({
 })
 
 $window.ShowDialog() | Out-Null
+
 
 
 
